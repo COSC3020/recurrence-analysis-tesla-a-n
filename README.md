@@ -30,3 +30,26 @@ function mystery(n) {
 Add your answer to this markdown file. [This
 page](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions)
 might help with the notation for mathematical expressions.
+
+Sol:
+There are 3 recursive calls, each of which have an input size of n/3 so the time spent there is:
+    $'3T(n/3)'$
+Then there are 3 nested loops:
+ The most inner loop runs $n*n$ times 
+ The middle loop runs $n$ times 
+ The outer loop runs $n*n$ times
+The total work done in these loops is $'O(n^2 * n * n^2) = O(n^5)'$
+This leaves the recurrence relation to be 
+    $'T(n) = 3T(n/3) + O(n^5)'$
+Looking at [This page](https://www.geeksforgeeks.org/recurrence-relations-a-complete-guide/) and using the Master Theorem which is a systematic way of solving recurrence relations with the form: $' T(n) = aT(n/b) + f(n)'$ The page gives an example similar to the relation of our mystery function: $' T(n) = 3T(n/2) + n^2
+a = 3, b = 2, k = 2, p = 0 
+b^(k) = 4. So, a < b^(k) and p = 0 [Case 3.(a)] 
+T(n) = O(n^(k) log^(p)n) 
+T(n) = O(n^(2))'$ 
+In our case, $'a = 3, b = 3, and k = 5'$ so, the overall time complexity is:
+$' T(n) = O(n^5) '$ 
+
+
+
+
+
